@@ -1,0 +1,355 @@
+<html>
+    <head>
+        <style type="text/css">
+        select.WantedColor {background-color:black; color:rgb(23, 182, 9)}
+        input.WantedColor {background-color:black; color:rgb(23, 182, 9)}
+        checkbox.WantedColor {background-color:black; color:rgb(23, 182, 9)}
+        tr.checkboxLabels  {background-color:black; color:rgb(23, 182, 9)}
+        tr.checkboxattr  {background-color:black; color:rgb(252, 0, 84)}
+        span.labels {background-color:black; color:rgb(252, 0, 84)}
+        option.red {background-color:red}
+        option.blue {background-color:blue}
+        option.white {background-color:white}
+        option.black {background-color:black}
+        option.PreferredColor {background-color:black; color:rgb(252, 0, 84)}
+        </style>
+        </head>
+    <body bgcolor="black" style="color:rgb(179, 6, 64)">
+
+        <table width="70%" align="center">
+            <tr>
+                <td colspan="5" align="center"><h1>OAR Event Script Creator</h1></td>
+            </tr>
+            <tr>
+                <td width="20%" align="right"><label for="EventType">Event Type:</label></td>                    
+                <td width="20%" align="left"><select id="EventType" name="EventType" class="WantedColor">
+                    <option value="-1" class="PreferredColor">Select Event Type...</option>
+                    <option value="ACC" class="PreferredColor">Assigned Carrier Conference</option>
+                    <option value="ACM" class="PreferredColor">Actuarial Committee Meetings</option>
+                    <option value="AEW" class="PreferredColor">Agent Education Workshops</option>
+                    <option value="AIS" class="PreferredColor">Annual Issues Symposium</option>
+                    <option value="AIV" class="PreferredColor">Annual Issues Symposium Virtual</option>
+                    <option value="CES" class="PreferredColor">Virtual Carrier Education Series</option>
+                    <option value="COV" class="PreferredColor">Covid-19 and Workers Compensation</option>
+                    <option value="DCP" class="PreferredColor">Data Collection Procedures Subcommittee Meetings</option>
+                    <option value="DEP" class="PreferredColor">Data Education Program</option>
+                    <option value="DNP" class="PreferredColor">Data Now Program</option>
+                </select>
+            </td>
+            <td width="20%"></td>
+            <td width="20%"align="right"> 
+                <label for="EventName">Event Name:</label>
+            </td>
+            <td width="20%" align="left">
+                <input size="50" type="text" id="EventName" name="EventName" class="WantedColor">
+            </td>
+            </tr>
+            <tr><td colspan="5"><table><tr><td></td></tr></table></td></tr>
+            <tr>
+                <td width="20%" align="right">
+                    <label for="EventEffectiveDate">Effective Date:</label> 
+                </td>
+                <td width="20%" align="left">
+                    <input type="date" id="EventEffectiveDate" name="EventEffectiveDate" class="WantedColor">
+                </td>
+                <td width="20%"></td>
+                <td width="20%"align="right">
+                    <label for="EventExpireDate">Expiration Date:</label> 
+                </td>
+                <td width="20%" align="left">
+                    <input type="date" id="EventExpireDate" name="EventExpireDate" class="WantedColor">
+                </td>                
+            </tr>
+            <tr><td colspan="5"><table><tr><td></td></tr></table></td></tr>
+            <tr>
+                <td colspan="5" align="center">
+                    <table align="center">
+                        <tr>
+                            <td colspan="2" align="center">
+                                <h2>Select Flags (Checked = "Y")</h2>
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td><input type="checkbox" id="DisplayNameFlag" name="DisplayNameFlag" value="Y" class="WantedColor">
+                                <label for="DisplayNameFlag"> Display Name</label>
+                            </td>
+                            <td><input type="checkbox" id="SingleRegFlag" name="SingleRegFlag" value="Y" class="WantedColor">
+                                <label for="SingleRegFlag"> Single Reg Flag</label>
+                            </td>
+                        </tr>
+                        
+                        <tr class="checkboxLabels">
+                            <td><input type="checkbox" id="ShowPricingFlag" name="ShowPricingFlag" value="Y" class="WantedColor">
+                                <label for="ShowPricingFlag"> Show Pricing Flag</label>
+                            </td>
+                            <td><input type="checkbox" id="RequireLoginFlag" name="RequireLoginFlag" value="Y" class="WantedColor">
+                                <label for="RequireLoginFlag"> Require Login Flag</label>
+                            </td>
+                        </tr>
+                        
+                        <tr class="checkboxLabels">
+                            <td><input type="checkbox" id="UsePromoCodeFlag" name="UsePromoCodeFlag" value="Y" class="WantedColor">
+                                <label for="UsePromoCodeFlag"> Use Promo Code Flag</label>
+                            </td>
+                            <td><input type="checkbox" id="ApplyPromoCodeFlag" name="ApplyPromoCodeFlag" value="Y" class="WantedColor">
+                                <label for="ApplyPromoCodeFlag"> Apply Promo Code Flag</label>
+                            </td>
+                        </tr>                        
+                   </table>
+                </td>
+           </tr>
+           <tr><td colspan="5"><table><tr><td></td></tr></table></td></tr>
+            <tr>
+                <td colspan="5" align="center">
+                    <table align="center">
+                        <tr>
+                            <td colspan="5" align="center">
+                                <h2>Select Target Audience</h2>
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td><input type="checkbox" id="Affiliate" name="Affiliate" value="Y" class="WantedColor">
+                                <label for="Affiliate"> Affiliate</label>
+                            </td>
+                            <td><input type="checkbox" id="ActuarialConsulting" name="ActuarialConsulting" value="Y" class="WantedColor">
+                                <label for="ActuarialConsulting"> Actuarial Consulting</label>
+                            </td>
+                            <td><input type="checkbox" id="BillReviewVendor" name="BillReviewVendor" value="Y" class="WantedColor">
+                                <label for="BillReviewVendor"> Bill Review Vendor</label>
+                            </td>
+                            <td><input type="checkbox" id="Captives" name="Captives" value="Y" class="WantedColor">
+                                <label for="Captives"> Captives</label>
+                            </td>
+                            <td><input type="checkbox" id="Carrier" name="Carrier" value="Y" class="WantedColor">
+                                <label for="Carrier"> Carrier</label>
+                            </td>
+                        </tr>
+                        
+                        <tr class="checkboxLabels">
+                            <td><input type="checkbox" id="DeptInsurance" name="DeptInsurance" value="Y" class="WantedColor">
+                                <label for="DeptInsurance"> Department of Insurance</label>
+                            </td>
+                            <td><input type="checkbox" id="DeptLabor" name="DeptLabor" value="Y" class="WantedColor">
+                                <label for="DeptLabor"> Department of Labor</label>
+                            </td>
+                            <td><input type="checkbox" id="HoldingCompany" name="HoldingCompany" value="Y" class="WantedColor">
+                                <label for="HoldingCompany"> Holding Company</label>
+                            </td>
+                            <td><input type="checkbox" id="IndependentBureau" name="IndependentBureau" value="Y" class="WantedColor">
+                                <label for="IndependentBureau"> Independent Bureau</label>
+                            </td>
+                            <td><input type="checkbox" id="IndividualInsured" name="IndividualInsured" value="Y" class="WantedColor">
+                                <label for="IndividualInsured"> Individual Insured</label>
+                            </td>
+                        </tr>                        
+                        <tr class="checkboxLabels">
+                            <td><input type="checkbox" id="InsuranceAgency" name="InsuranceAgency" value="Y" class="WantedColor">
+                                <label for="InsuranceAgency"> Insurance Agency</label>
+                            </td>
+                            <td><input type="checkbox" id="InsuranceBroker" name="InsuranceBroker" value="Y" class="WantedColor">
+                                <label for="InsuranceBroker"> Insurance Broker</label>
+                            </td>
+                            <td><input type="checkbox" id="LawFirm" name="LawFirm" value="Y" class="WantedColor">
+                                <label for="LawFirm"> Law Firm</label>
+                            </td>
+                            <td><input type="checkbox" id="Legislator" name="Legislator" value="Y" class="WantedColor">
+                                <label for="Legislator"> Legislator</label>
+                            </td>
+                            <td><input type="checkbox" id="MGA" name="MGA" value="Y" class="WantedColor">
+                                <label for="MGA"> MGA (Managing General Agent)</label>
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td><input type="checkbox" id="Other" name="Other" value="Y" class="WantedColor">
+                                <label for="Other"> Other</label>
+                            </td>
+                            <td><input type="checkbox" id="PharmacyVendor" name="PharmacyVendor" value="Y" class="WantedColor">
+                                <label for="PharmacyVendor"> Pharmacy Vendor</label>
+                            </td>
+                            <td><input type="checkbox" id="Regulator" name="Regulator" value="Y" class="WantedColor">
+                                <label for="Regulator"> Regulator</label>
+                            </td>
+                            <td><input type="checkbox" id="Reinsurer" name="Reinsurer" value="Y" class="WantedColor">
+                                <label for="Reinsurer"> Reinsurer</label>
+                            </td>
+                            <td><input type="checkbox" id="RMLC" name="RMLC" value="Y" class="WantedColor">
+                                <label for="RMLC"> Risk Management/Loss Control</label>
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td><input type="checkbox" id="SelfInsuredGroup" name="SelfInsuredGroup" value="Y" class="WantedColor">
+                                <label for="SelfInsuredGroup"> Self Insured Group</label>
+                            </td>
+                            <td><input type="checkbox" id="SelfInsured" name="SelfInsured" value="Y" class="WantedColor">
+                                <label for="SelfInsured"> Self Insured Individual</label>
+                            </td>
+                            <td><input type="checkbox" id="ServiceProvider" name="ServiceProvider" value="Y" class="WantedColor">
+                                <label for="ServiceProvider"> Service Provider (Or TPA)</label>
+                            </td>
+                            <td><input type="checkbox" id="StateFund" name="StateFund" value="Y" class="WantedColor">
+                                <label for="StateFund"> State Fund</label>
+                            </td>
+                            <td><input type="checkbox" id="Temp" name="Temp" value="Y" class="WantedColor">
+                                <label for="Temp"> Temp/Employee Leasing Firm</label>
+                            </td>
+                        </tr>          
+                   </table>
+                </td>
+           </tr>
+           <tr><td colspan="5"><table><tr><td></td></tr></table></td></tr>
+            <tr>
+                <td colspan="5" align="center">
+                    <table align="center" width="70%">
+                        <tr>
+                            <td colspan="3" align="center">
+                                <h2>Select Attendee Fields</h2>
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td align="center">
+                                <span class="labels" >Account Number:</span> <br />
+                                <input type="checkbox" id="AccountNumberDisplay" name="AccountNumberDisplay" value="Y" class="WantedColor">
+                                <label for="AccountNumberDisplay"> Display</label>
+                                <input type="checkbox" id="AccountNumberRequired" name="AccountNumberRequired" value="Y" class="WantedColor">
+                                <label for="AccountNumberRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Company Name:</span> <br />
+                                <input type="checkbox" id="CompanyNameDisplay" name="CompanyNameDisplay" value="Y" class="WantedColor">
+                                <label for="CompanyNameDisplay"> Display</label>
+                                <input type="checkbox" id="CompanyNameRequired" name="CompanyNameRequired" value="Y" class="WantedColor">
+                                <label for="CompanyNameRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Company Type:</span> <br />
+                                <input type="checkbox" id="CompanyTypeDisplay" name="CompanyTypeDisplay" value="Y" class="WantedColor">
+                                <label for="CompanyTypeDisplay"> Display</label>
+                                <input type="checkbox" id="CompanyTypeRequired" name="CompanyTypeRequired" value="Y" class="WantedColor">
+                                <label for="CompanyTypeRequired"> Required</label>  
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td align="center">
+                                <span class="labels" >Contact ID:</span> <br />
+                                <input type="checkbox" id="ContactIDDisplay" name="ContactIDDisplay" value="Y" class="WantedColor">
+                                <label for="ContactIDDisplay"> Display</label>
+                                <input type="checkbox" id="ContactIDRequired" name="ContactIDRequired" value="Y" class="WantedColor">
+                                <label for="ContactIDRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">First Name:</span> <br />
+                                <input type="checkbox" id="FirstNameDisplay" name="FirstNameDisplay" value="Y" class="WantedColor">
+                                <label for="FirstNameDisplay"> Display</label>
+                                <input type="checkbox" id="FirstNameRequired" name="FirstNameRequired" value="Y" class="WantedColor">
+                                <label for="FirstNameRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Last Name:</span> <br />
+                                <input type="checkbox" id="LastNameDisplay" name="LastNameDisplay" value="Y" class="WantedColor">
+                                <label for="LastNameDisplay"> Display</label>
+                                <input type="checkbox" id="LastNameRequired" name="LastNameRequired" value="Y" class="WantedColor">
+                                <label for="LastNameRequired"> Required</label>  
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td align="center">
+                                <span class="labels" >Job Title:</span> <br />
+                                <input type="checkbox" id="JobTitleDisplay" name="JobTitleDisplay" value="Y" class="WantedColor">
+                                <label for="JobTitleDisplay"> Display</label>
+                                <input type="checkbox" id="JobTitleRequired" name="JobTitleRequired" value="Y" class="WantedColor">
+                                <label for="JobTitleRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Alternate Job Title:</span> <br />
+                                <input type="checkbox" id="AltJobTitleDisplay" name="AltJobTitleDisplay" value="Y" class="WantedColor">
+                                <label for="AltJobTitleDisplay"> Display</label>
+                                <input type="checkbox" id="AltJobTitleRequired" name="AltJobTitleRequired" value="Y" class="WantedColor">
+                                <label for="AltJobTitleRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Department:</span> <br />
+                                <input type="checkbox" id="DepartmentDisplay" name="DepartmentDisplay" value="Y" class="WantedColor">
+                                <label for="DepartmentDisplay"> Display</label>
+                                <input type="checkbox" id="DepartmentRequired" name="DepartmentRequired" value="Y" class="WantedColor">
+                                <label for="DepartmentRequired"> Required</label>  
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td align="center">
+                                <span class="labels" >Alternate Department:</span> <br />
+                                <input type="checkbox" id="AltDeptDisplay" name="AltDeptDisplay" value="Y" class="WantedColor">
+                                <label for="AltDeptDisplay"> Display</label>
+                                <input type="checkbox" id="AltDeptRequired" name="AltDeptRequired" value="Y" class="WantedColor">
+                                <label for="AltDeptRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Company Address:</span> <br />
+                                <input type="checkbox" id="CompanyAddressDisplay" name="CompanyAddressDisplay" value="Y" class="WantedColor">
+                                <label for="CompanyAddressDisplay"> Display</label>
+                                <input type="checkbox" id="CompanyAddressRequired" name="CompanyAddressRequired" value="Y" class="WantedColor">
+                                <label for="CompanyAddressRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">City:</span> <br />
+                                <input type="checkbox" id="CityDisplay" name="CityDisplay" value="Y" class="WantedColor">
+                                <label for="CityDisplay"> Display</label>
+                                <input type="checkbox" id="CityRequired" name="CityRequired" value="Y" class="WantedColor">
+                                <label for="CityRequired"> Required</label>  
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td align="center">
+                                <span class="labels" >State:</span> <br />
+                                <input type="checkbox" id="StateDisplay" name="StateDisplay" value="Y" class="WantedColor">
+                                <label for="StateDisplay"> Display</label>
+                                <input type="checkbox" id="StateRequired" name="StateRequired" value="Y" class="WantedColor">
+                                <label for="StateRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Postal Code:</span> <br />
+                                <input type="checkbox" id="PostalCodeDisplay" name="PostalCodeDisplay" value="Y" class="WantedColor">
+                                <label for="PostalCodeDisplay"> Display</label>
+                                <input type="checkbox" id="PostalCodeRequired" name="PostalCodeRequired" value="Y" class="WantedColor">
+                                <label for="PostalCodeRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Phone Country Code:</span> <br />
+                                <input type="checkbox" id="PhoneCCDisplay" name="PhoneCCDisplay" value="Y" class="WantedColor">
+                                <label for="PhoneCCDisplay"> Display</label>
+                                <input type="checkbox" id="PhoneCCRequired" name="PhoneCCRequired" value="Y" class="WantedColor">
+                                <label for="PhoneCCRequired"> Required</label>  
+                            </td>
+                        </tr>
+                        <tr class="checkboxLabels">
+                            <td align="center">
+                                <span class="labels" >Telephone:</span> <br />
+                                <input type="checkbox" id="TelephoneDisplay" name="TelephoneDisplay" value="Y" class="WantedColor">
+                                <label for="TelephoneDisplay"> Display</label>
+                                <input type="checkbox" id="TelephoneRequired" name="TelephoneRequired" value="Y" class="WantedColor">
+                                <label for="TelephoneRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Extension:</span> <br />
+                                <input type="checkbox" id="ExtensionDisplay" name="ExtensionDisplay" value="Y" class="WantedColor">
+                                <label for="ExtensionDisplay"> Display</label>
+                                <input type="checkbox" id="ExtensionRequired" name="ExtensionRequired" value="Y" class="WantedColor">
+                                <label for="ExtensionRequired"> Required</label>   
+                            </td>
+                            <td align="center">
+                                <span class="labels">Mobile Phone:</span> <br />
+                                <input type="checkbox" id="MobilePhoneDisplay" name="MobilePhoneDisplay" value="Y" class="WantedColor">
+                                <label for="MobilePhoneDisplay"> Display</label>
+                                <input type="checkbox" id="MobilePhoneRequired" name="MobilePhoneRequired" value="Y" class="WantedColor">
+                                <label for="MobilePhoneRequired"> Required</label>  
+                            </td>
+                        </tr>
+                              
+                   </table>
+                </td>
+           </tr>
+        </table>
+
+    </body>
+</html>
+
+<div class="column"></div>
