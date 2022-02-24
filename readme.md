@@ -1,4 +1,4 @@
-# Hotel Bookings 
+# Hotel Bookings
 
 This application is a POC in Go for Bookings and Reservations for a Hotel Stay
 
