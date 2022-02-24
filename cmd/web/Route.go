@@ -1,9 +1,10 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/IrisRise/HotelBookings/pkg/Config"
 	"github.com/IrisRise/HotelBookings/pkg/Handlers"
-	"net/http"
 
 	"github.com/bmizerany/pat"
 	"github.com/go-chi/chi/v5"
@@ -29,6 +30,9 @@ func ChiRoutes(app *Config.AppConfig) http.Handler {
 	
 		mux.Get("/", Handlers.Repo.Home)
 		mux.Get("/about", Handlers.Repo.About)
+
+		fileServer := http.FileServer(http.Dir("./Static"))		
+		mux.Handle("/Static/", http.StripPrefix("/Static/", fileServer))
 	
 		return mux
 	
