@@ -17,6 +17,9 @@
             color: antiquewhite;
             margin: 3%;
         }
+        .room-image {
+          max-width: 50%;
+        }
     </style>
 
 </head>
@@ -31,27 +34,27 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./About.html">About</a>
+                <a class="nav-link" href="../About.html">About</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Rooms
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="./Rooms/GeneralQuarters.html">General's Quarters</a></li>
-                  <li><a class="dropdown-item" href="./Rooms/MajorsSuite.html">Major's Suite</a></li>
+                  <li><a class="dropdown-item" href="GeneralQuarters.html">General's Quarters</a></li>
+                  <li><a class="dropdown-item" href="MajorsSuite.html">Major's Suite</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="./Rooms/Gunnery.html">Gunny's Gunnery</a></li>
+                  <li><a class="dropdown-item" href="Gunnery.html">Gunny's Gunnery</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./Reservation.html">Stay with Us</a>
+                <a class="nav-link" href="../Reservation.html">Stay with Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./Contact.html">Contact Us</a>
+                <a class="nav-link" href="../Contact.html">Contact Us</a>
               </li>
             </ul>
             <!-- <form class="d-flex">
@@ -63,44 +66,19 @@
       </nav>
 
 
-      <div id="main-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#main-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#main-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#main-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="3000">
-            <img src="Static/Images/Honeymoon.jpg" class="d-block w-100" alt="General's Quarters">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>General's Quarters</h5>
-                <p>Special Suite with complimentary Room service and Concierge services</p>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="3000">
-            <img src="Static/Images/RelaxationSuites.jpg" class="d-block w-100" alt="Major's Suite">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Major's Suite</h5>
-                <p>Special Suite with complimentary Room service</p>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="3000">
-            <img src="Static/Images/GardenDining.jpg" class="d-block w-100" alt="Gunny's Gunnery">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Gunny's Gunnery</h5>
-                <p>Multi-Tenant Quarters inside our own Air-conditioned Green House</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      
 
     <div class="container">
 
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center " >
+          <img src="../Static/Images/Honeymoon.jpg" width ="70%" class="img-fluid img-thumbnail room-image" alt="General's Quarters">
+        </div>
+      </div>
+
          <div class="row">
             <div class="col">
-                <h1 class="text-center mt-5" >Welcome to Navitha Estates- Kshatriya Complex</h1>
+                <h1 class="text-center mt-5" >This is your General's Quarters</h1>
                 <p class="text-center mt-3">Enjoy your stay here - Regal style with Military level service. Also Military style vacation. Want to try your skill at being a Military officer?<br />
                 Choose activities based on your taste:
                     <ul class="text-left mt-2">
@@ -115,7 +93,7 @@
         <div class="row">
             <div class="col">
                 <div class="d-grid gap-2">
-                    <a href="/Reservation" class="btn btn-dark" style="background-color: #50047c;">Reserve Now</a>
+                    <a href="../Reservation.html" class="btn btn-dark" style="background-color: #50047c;">Check Availability</a>
 
                   </div>              
            
