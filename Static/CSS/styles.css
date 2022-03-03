@@ -1,0 +1,14 @@
+.my-footer {
+    height: 5em;
+    background-color: blueviolet;
+    color: antiquewhite;
+    margin: 3%;
+}
+/* override styles here */
+.notie-container {
+  box-shadow: 0px 10px blueviolet;
+}
+
+.datepicker {
+  z-index: 10000;
+}

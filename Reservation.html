@@ -9,16 +9,11 @@
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
-    <style>
-        .my-footer {
-            height: 5em;
-            background-color: blueviolet;
-            color: antiquewhite;
-            margin: 3%;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker-bs5.min.css">
 
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <link rel="stylesheet" href="./Static/CSS/styles.css">
+  
 </head>
 
 <body>
@@ -66,7 +61,7 @@
       
 
     <div class="container">
-        <form action="Reservation.html" method="get">
+        <form action="Reservation.html" method="get" class="needs-validation" novalidate>
             <div class="row">        
                 <div class="col-lg-12 col-md-12 col-sm-12 text-center ">
                 <img src="./Static/Images/Hotel.jpg" class="img-fluid img-thumbnail room-image" alt="General's Quarters">  
@@ -76,20 +71,22 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <h1 class="text-center mt-5" style="padding:20px" >Stay With Us</h1>
-                    <div class="row">
-                        <div class="col" >
-                            <label for="CheckInDate" class="form-label">Check-in Date (yyyy-mm-dd)</label>
-                            <input required type="date" class="form-control" id="CheckInDate" name="CheckInDate" placeholder="2022-01-01">
-                            <div class="valid-feedback">
-                              Looks good!
-                            </div>
-                        </div>
-                        <div class="col">
-                            <label for="CheckOutDate" class="form-label">Check-Out Date (yyyy-mm-dd)</label>
-                            <input required type="date" class="form-control" id="CheckOutDate" name="CheckOutDate" placeholder="2022-01-01">
-                            <div class="valid-feedback">
-                              Looks good!
+                    <h1 class="text-center mt-5" style="padding:20px" >Stay With Us</h1>                    
+                          <div id="reservation-dates">
+                            <div class="row">
+                              <div class="col" >
+                                <label for="CheckInDate" class="form-label">Check-in Date (yyyy-mm-dd)</label>
+                                <input required type="text" class="form-control" id="CheckInDate" name="CheckInDate" placeholder="Arrival Date">
+                                <div class="valid-feedback">
+                                  Looks good!
+                                </div>
+                              </div>
+                              <div class="col">
+                                <label for="CheckOutDate" class="form-label">Check-Out Date (yyyy-mm-dd)</label>
+                                <input required type="text" class="form-control" id="CheckOutDate" name="CheckOutDate" placeholder="Departure Date">
+                                <div class="valid-feedback">
+                                  Looks good!
+                                </div>
                             </div>
                         </div>                                              
                     </div>
@@ -104,9 +101,19 @@
                     </div>   
                 </div>            
             </div>
+
+  
         </form>
     </div>
 
+    <!--Testing Javascript-->
+    <div class="row">
+      <div class="col">
+        <p id="txt_js">This is a text message from a paragraph</p>
+        <input type="color" class="form-control form-control-color" id="ClPckColorInput" value="#563d7c" title="Choose your color">
+        <button id="BtnColorChange" class="btn btn-dark" style="background-color: #50047c;" value="Change Color" onclick="BtnColorChange_onClick()">Click Me</button>
+      </div>
+    </div>
 
     <div class="row my-footer text-center align-items-md-center">
         <div class="col">        
@@ -123,6 +130,210 @@
   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+    <script src="https://unpkg.com/notie"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+
+      //Instance of Javascript Module
+      let attention = Prompt();
+
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+          'use strict'
+
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          let forms = document.querySelectorAll('.needs-validation')
+
+          // Loop over them and prevent submission
+          Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+              }, false)
+            })
+        })()
+
+
+        //EventListener for Color Change Button
+        function BtnColorChange_onClick() {
+          parah = document.getElementById("txt_js")
+          ColorPicker = document.getElementById("ClPckColorInput")
+          parah.style.color = ColorPicker.value
+         
+          Notify('success', 'You changed the color to ' + ColorPicker.value)
+
+          let html = `
+                 <form id="check-availability-form" action="" method="post" novalidate class="needs-validation">
+                  <div id="reservation-dates-modal">
+                    <div class="row">
+                      <div class ="col-md-4"></div>
+                      <div class ="col-md-4">
+                        <label for="CheckIn_Date" class="form-label">From</label>
+                        <input required disabled type="text" class="form-control" id="CheckIn_Date" name="CheckIn_Date" placeholder="Arrival Date">
+                        <label for="CheckOut_Date" class="form-label">To</label>
+                        <input required disabled type="text" class="form-control" id="CheckOut_Date" name="CheckOut_Date" placeholder="Departure Date">
+                      </div>
+                      <div class ="col-md-4"></div>
+                    </div>
+                  </div> 
+                 </form>          
+          `
+
+          attention.custom({msg: "Check Availability", title: "Hurrah!", btnTxt: "YES!", html: html})
+         
+        }
+
+        //Custom DatePicker
+        const elem = document.getElementById('reservation-dates');
+        const rangepicker = new DateRangePicker(elem, {
+          format: "yyyy-mm-dd",
+        }); 
+
+        
+        
+        //Notie for notifications
+        function Notify(type, msg) {
+          notie.alert({
+            type: type, // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+            text: msg,
+            stay: false, // optional, default = false
+            time: 5, // optional, default = 3, minimum = 1,
+            position: 'top' // optional, default = 'top', enum: ['top', 'bottom']
+          })
+        }
+        
+        //Sweet Alert Function that will be called from the module
+        function MessageAlert(title, msg, icon, btntxt) {
+          Swal.fire({
+            title: title,
+            text: msg,
+            icon: icon,
+            confirmButtonText: btntxt
+          })
+        }
+
+
+        //Module for Sweet Alerts
+        function Prompt() {
+
+          let toast = function(c) {
+
+            const {
+              msg = "",
+              title = "",
+            } = c;
+
+            Swal.fire({
+              toast: true,
+              position: 'top-end',
+              width: 1200,
+              title: title,
+              text: msg,
+              icon: 'info',
+              timer: 10000,
+              showConfirmButton: false,
+              backdrop: `
+                rgba(0,0,123,0.4)
+                url("https://cdn.wallpapersafari.com/1/48/ND3UZk.jpg")
+                left top
+                no-repeat
+              `
+            })
+          }
+
+          let success = function(c) {
+
+            const {
+              msg = "",
+              title = "",
+              btnTxt = "",
+            } = c;
+
+            MessageAlert(title,
+              msg,
+              'success',
+              btnTxt)
+          }
+
+          let error = function(c) {
+
+            const {
+              msg = "",
+              title = "",
+              btnTxt = "",
+            } = c;
+
+            MessageAlert(title,
+              msg,
+              'error',
+              btnTxt)
+            }
+
+         
+          async function custom(c) {
+            const {
+              msg = "",
+              title = "",
+              btnTxt = "",
+              html = "",
+            } = c;
+
+            const { value: formValues } = await Swal.fire({
+              title: title,
+              html:
+                msg +
+                '<br>' +
+                html,
+              focusConfirm: false,
+              showCancelButton: true,
+              didOpen: () => {
+                document.getElementById('CheckIn_Date').removeAttribute("disabled");
+                document.getElementById('CheckOut_Date').removeAttribute("disabled");
+              },
+              willOpen: () => {
+                 //Custom DatePicker
+                  const elem = document.getElementById('reservation-dates-modal');
+                  const rangepicker = new DateRangePicker(elem, {
+                    format: "yyyy-mm-dd",
+                    showOnFocus: true,
+                  })
+              },
+              preConfirm: () => {
+                return [
+                  document.getElementById('CheckIn_Date').value,
+                  " To ",
+                  document.getElementById('CheckOut_Date').value
+                ]
+              }
+            })
+
+            if (formValues) {
+              Swal.fire(JSON.stringify(formValues))
+            }
+
+
+          }
+
+          return {
+            toast: toast,
+            success: success,
+            error: error,
+            custom: custom,
+          }
+
+
+
+        }
+        
+    </script>
+
 
 </body>
 
